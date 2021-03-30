@@ -78,7 +78,7 @@ Para encender el bot es simple, vamos por pasos: (antes de esto tenemos que hace
 
 
 
-**Paso 5: **Nuestro bot ya quedó encendido:
+**Paso 5:** Nuestro bot ya quedó encendido:
 
 ![](https://media.discordapp.net/attachments/826286539213504512/826488015853453402/image-20210330110721179.png?width=192&height=60)
 
