@@ -1,0 +1,31 @@
+{
+  "name": "djsguide-bot-template",
+  "version": "1.0.0",
+  "description": "Plantilla para bot de Discord siguiendo la guía de discordjs.guide.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anventech/djsguide-bot-template.git"
+  },
+  "keywords": [
+    "djs",
+    "guide",
+    "djsguide",
+    "bot",
+    "discord",
+    "template"
+  ],
+  "author": "anventech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anventech/djsguide-bot-template/issues"
+  },
+  "homepage": "https://github.com/anventech/djsguide-bot-template#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
