@@ -15,11 +15,11 @@ module.exports = {
     
         if (!command) return;
         
-        if (command.guildOnly && message.channel.type === 'dm') return message.channel.send('No puedo ejecutar este comando en mensajes directos. :frowning:');
+        if (command.guildOnly && message.channel.type === 'dm') return message.channel.send('No puedo ejecutar este comando en mensajes directos. :frowning:').then(m => m.delete({ timeout: 20000 }));
     
         if (command.permissions) {
             const authorPerms = message.channel.permissionsFor(message.author);
-            if (!authorPerms || !authorPerms.has(command.permissions)) return message.channel.send('No puedes hacer eso. :warning:');
+            if (!authorPerms || !authorPerms.has(command.permissions)) return message.channel.send('No puedes hacer eso. :warning:').then(m => m.delete({ timeout: 20000 }));
         }
     
         if (command.args && !args.length) {
@@ -27,7 +27,7 @@ module.exports = {
     
             if (command.usage) reply += `\nEl uso apropiado debería ser: \`${prefix}${command.name} ${command.usage}\``;
     
-            return message.channel.send(reply);
+            return message.channel.send(reply).then(m => m.delete({ timeout: 20000 }));
         }
     
         const { cooldowns } = client;
@@ -43,7 +43,7 @@ module.exports = {
     
             if (now < expirationTime) {
                 const timeLeft = (expirationTime - now) / 1000;
-                return message.channel.send(`Por favor espere **${timeLeft.toFixed(1)} segundos** más para reusar el comando \`${command.name}\`.`);
+                return message.channel.send(`Por favor espere **${timeLeft.toFixed(1)} segundos** más para reusar el comando \`${command.name}\`.`).then(m => m.delete({ timeout: 20000 }));
             }
         }
     
@@ -54,7 +54,7 @@ module.exports = {
             command.execute(client, message, args);
         } catch (error) {
             console.error(error);
-            message.reply('Ocurrió un error intentando ejecutar ese comando. :x:');
+            message.reply('Ocurrió un error intentando ejecutar ese comando. :x:').then(m => m.delete({ timeout: 20000 }));
         }
 	},
 };
